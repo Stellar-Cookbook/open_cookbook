@@ -1,46 +1,67 @@
 {
 	"instances": [
-	{
-		"title": "transfer a specific token through smart contract",
-		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L1602",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
-	{
-		"title": "authorize nested smart contract call",
-		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L558",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
-	{
-		"title": "calling Blend Protocol (testnet)",
-		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L576",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
-	{
-		"title": "working Blend Protocol interface file",
-		"link": "https://github.com/miraivault/contracts/blob/main/miraivault/testnet_v2/src/pool_client.rs",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
-	{
-		"title": "calling DeFindex Protocol (testnet)",
-		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L720",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
-	{
-		"title": "working DeFindex Protocol interface file",
-		"link": "https://github.com/miraivault/contracts/blob/main/miraivault/testnet_v2/src/defindex_client.rs",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
-	{
-		"title": "bumping the storage",
-		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L1698",
-		"submitted_on": "22/10/26",
-		"verified_by_org": ""
-	},
+		{
+			"title": "transfer a specific token through smart contract",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L1601-L1603",
+			"why": "Standard SEP-41 payout idiom: build a token::Client for a stored token address, then call .transfer twice to split a reward between user and treasury.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "authorize nested smart contract call",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L558-L574",
+			"why": "env.authorize_as_current_contract with an InvokerContractAuthEntry::Contract(SubContractInvocation) so the contract's own auth covers a token transfer performed inside a downstream Blend call.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "calling Blend Protocol (testnet)",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L574-L578",
+			"why": "Hand-written Blend pool client: PoolClient::new(env, &pool_addr) then .submit() with a request list whose token transfer was pre-authorized just above.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "working Blend Protocol interface file",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/pool_client.rs",
+			"why": "Complete hand-written client module for Blend's pool contract (Request type, submit/withdraw wrappers); the companion interface to the call site above.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "calling DeFindex Protocol (testnet)",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L700-L720",
+			"why": "DefindexClient::new(env, &vault) then read total_supply()/fetch_total_managed_funds() to price shares before client.withdraw(shares, min_amounts_out, to).",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "working DeFindex Protocol interface file",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/defindex_client.rs",
+			"why": "Complete hand-written client module for a DeFindex vault; same pattern as the Blend client, useful as a template for writing your own interface file.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "bumping the storage",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L1698-L1711",
+			"why": "storage.extend_ttl on persistent entries to keep vault and reward data alive; the routine 'bump' every contract with persistent state needs.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "call the XLM token from a contract, the shortcut way",
+			"link": "https://github.com/stellar-registry/cli/blob/0e83b419858970b1d95733302efd87430f1af731/crates/stellar-registry-test/fixtures/contracts/xlm_tip_jar/src/lib.rs#L14-L22",
+			"why": "stellar_registry::import_contract!(env, xlm) resolves the XLM SAC address at build time and returns a ready-made token client for free; see tip() further down for the .transfer call.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		},
+		{
+			"title": "call a contract with try_invoke_contract",
+			"link": "https://github.com/mozartpay/OAs/blob/62722ef2be68b068399efeba7180a7488550fd94/mozartpay/contracts/src/orchestrated_agreement.rs#L11-L71",
+			"why": "Hand-rolled client module for the project's own DID-registry contract: address set at runtime, panics caught as Err instead of propagated, and the response decoded as an opaque Val/Map without generated types.",
+			"submitted_on": "2026-10-22",
+			"verified_by_org": ""
+		}
 	]
 }
