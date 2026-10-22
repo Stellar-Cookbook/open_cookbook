@@ -1,0 +1,46 @@
+{
+	"instances": [
+	{
+		"title": "transfer a specific token through smart contract",
+		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L1602",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	{
+		"title": "authorize nested smart contract call",
+		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L558",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	{
+		"title": "calling Blend Protocol (testnet)",
+		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L576",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	{
+		"title": "working Blend Protocol interface file",
+		"link": "https://github.com/miraivault/contracts/blob/main/miraivault/testnet_v2/src/pool_client.rs",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	{
+		"title": "calling DeFindex Protocol (testnet)",
+		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L720",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	{
+		"title": "working DeFindex Protocol interface file",
+		"link": "https://github.com/miraivault/contracts/blob/main/miraivault/testnet_v2/src/defindex_client.rs",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	{
+		"title": "bumping the storage",
+		"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/lib.rs#L1698",
+		"submitted_on": "22/10/26",
+		"verified_by_org": ""
+	},
+	]
+}
