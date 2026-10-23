@@ -7,6 +7,7 @@ Open Cookbook is open to all members and volunteers on Stellar. Everyone is invi
 ## recommended format  
 1. fork this repository  
 2. add your entry to the end of the `instances` array in `cookbook.json`  
-3. the following format will be accepted: `{"title": "...", "link": "...", "why": "one sentence on why this is a good example", "submitted_on": "YYYY-MM-DD", "verified_by_org": "leave blank for submission"}`  
-4. links must be pinned to a commit SHA, not a branch name (open the file on GitHub, press `y`, then copy the URL), and should anchor the exact line or range — `#L12` or `#L12-L20`
+3. the following format will be accepted: `{"title": "...", "link": "...", "why": "one sentence on why this is a good example", "network": "...", "submitted_on": "YYYY-MM-DD", "verified_by_org": "leave blank for submission"}`  
+4. `network` is one of `mainnet`, `testnet`, `futurenet` or `agnostic` — use `agnostic` when the code contains no network-specific addresses or config  
+5. links must be pinned to a commit SHA, not a branch name (open the file on GitHub, press `y`, then copy the URL), and should anchor the exact line or range — `#L12` or `#L12-L20`
 
