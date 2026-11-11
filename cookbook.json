@@ -87,6 +87,23 @@
 			"network": "agnostic",
 			"submitted_on": "2026-10-23",
 			"verified_by_org": ""
-		}
+		},
+		{
+			"title": "creating your own token",
+			"link": "https://github.com/miraivault/contracts/blob/main/mirai_token/src/lib.rs",
+			"why": "This is the standard fungible token contract for Stellar.",
+			"network": "agnostic",
+			"submitted_on": "2026-11-11",
+			"verified_by_org": ""
+		},
+		{
+			"title": "creating mock authorizations during test run",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/miraivault/testnet_v2/src/test.rs#L408",
+			"why": "In Soroban code, all levels of nested authorizations must be provided for equivalent nested calls to be able to work. This is the way to do that for test runs.",
+			"network": "agnostic",
+			"submitted_on": "2026-11-11",
+			"verified_by_org": ""
+		},
+
 	]
 }
