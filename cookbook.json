@@ -6,6 +6,11 @@
 			"why": "Standard SEP-41 payout idiom: build a token::Client for a stored token address, then call .transfer twice to split a reward between user and treasury.",
 			"network": "testnet",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"token",
+				"transfer",
+				"sep-41"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -14,6 +19,10 @@
 			"why": "env.authorize_as_current_contract with an InvokerContractAuthEntry::Contract(SubContractInvocation) so the contract's own auth covers a token transfer performed inside a downstream Blend call.",
 			"network": "testnet",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"auth",
+				"cross-contract"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -22,6 +31,11 @@
 			"why": "Hand-written Blend pool client: PoolClient::new(env, &pool_addr) then .submit() with a request list whose token transfer was pre-authorized just above.",
 			"network": "testnet",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"cross-contract",
+				"defi",
+				"blend"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -30,6 +44,11 @@
 			"why": "Complete hand-written client module for Blend's pool contract (Request type, submit/withdraw wrappers); the companion interface to the call site above.",
 			"network": "agnostic",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"cross-contract",
+				"client",
+				"blend"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -38,6 +57,11 @@
 			"why": "DefindexClient::new(env, &vault) then read total_supply()/fetch_total_managed_funds() to price shares before client.withdraw(shares, min_amounts_out, to).",
 			"network": "testnet",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"cross-contract",
+				"defi",
+				"defindex"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -46,6 +70,11 @@
 			"why": "Complete hand-written client module for a DeFindex vault; same pattern as the Blend client, useful as a template for writing your own interface file.",
 			"network": "agnostic",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"cross-contract",
+				"client",
+				"defindex"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -54,6 +83,10 @@
 			"why": "storage.extend_ttl on persistent entries to keep vault and reward data alive; the routine 'bump' every contract with persistent state needs.",
 			"network": "testnet",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"storage",
+				"ttl"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -62,6 +95,11 @@
 			"why": "stellar_registry::import_contract!(env, xlm) resolves the XLM SAC address at build time and returns a ready-made token client for free; see tip() further down for the .transfer call.",
 			"network": "agnostic",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"token",
+				"xlm",
+				"registry"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -70,6 +108,10 @@
 			"why": "Hand-rolled client module for the project's own DID-registry contract: address set at runtime, panics caught as Err instead of propagated, and the response decoded as an opaque Val/Map without generated types.",
 			"network": "agnostic",
 			"submitted_on": "2026-10-22",
+			"tags": [
+				"cross-contract",
+				"try-invoke"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -78,6 +120,9 @@
 			"why": "user.require_auth() is the canonical way to make the invoker authorize a call; the surrounding comments explain the authorization scope and the require_auth_for_args equivalent.",
 			"network": "agnostic",
 			"submitted_on": "2026-10-23",
+			"tags": [
+				"auth"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -86,14 +131,23 @@
 			"why": "The OpenZeppelin access-control pattern: set_owner in __constructor, the #[only_owner] macro guarding a function, and #[contractimpl(contracttrait)] impl Ownable exposing the standard owner entry points — no hand-rolled auth logic.",
 			"network": "agnostic",
 			"submitted_on": "2026-10-23",
+			"tags": [
+				"auth",
+				"access-control",
+				"openzeppelin"
+			],
 			"verified_by_org": ""
 		},
 		{
 			"title": "creating your own token",
-			"link": "https://github.com/miraivault/contracts/blob/main/mirai_token/src/lib.rs",
+			"link": "https://github.com/miraivault/contracts/blob/825499e03b0a1346f3ae00af5d6e45b08e88ddac/mirai_token/src/lib.rs",
 			"why": "This is the standard fungible token contract for Stellar.",
 			"network": "agnostic",
 			"submitted_on": "2026-11-11",
+			"tags": [
+				"token",
+				"custom-asset"
+			],
 			"verified_by_org": ""
 		},
 		{
@@ -102,8 +156,11 @@
 			"why": "In Soroban code, all levels of nested authorizations must be provided for equivalent nested calls to be able to work. This is the way to do that for test runs.",
 			"network": "agnostic",
 			"submitted_on": "2026-11-11",
+			"tags": [
+				"auth",
+				"testing"
+			],
 			"verified_by_org": ""
-		},
-
+		}
 	]
 }
