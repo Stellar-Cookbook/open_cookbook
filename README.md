@@ -14,4 +14,5 @@ This repo ships a zero-build static site that renders `cookbook.json` — enable
 4. `network` is one of `mainnet`, `testnet`, `futurenet` or `agnostic` — use `agnostic` when the code contains no network-specific addresses or config  
 5. `tags` is an array of 1–3 lowercase kebab-case labels (e.g. `token`, `auth`, `cross-contract`, `storage`) used for filtering on the site  
 6. links must be pinned to a commit SHA, not a branch name (open the file on GitHub, press `y`, then copy the URL), and should anchor the exact line or range — `#L12` or `#L12-L20`
+7. open a pull request — CI validates the format, SHA pinning, that every link resolves, and that anchors are in-bounds; you can run the same check locally with `python3 scripts/validate.py`
 
